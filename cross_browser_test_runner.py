@@ -82,9 +82,22 @@ def run_test(caps):
     try:
         driver = create_driver_with_capabilities(caps)
         result = scrape_and_analyze_articles(driver)
+        
+        # Set BrowserStack test status based on result
+        if result.get('status') == 'success':
+            driver.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed", "reason": "Test completed successfully"}}')
+        else:
+            driver.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed", "reason": "' + str(result.get('reason', 'Unknown error')) + '"}}')
+        
         return result
         
     except Exception as e:
+        # Set failed status in BrowserStack
+        if driver:
+            try:
+                driver.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed", "reason": "' + str(e)[:100] + '"}}')
+            except:
+                pass
         raise Exception(f"Test {test_name} failed: {str(e)}")
     finally:
         if driver:
