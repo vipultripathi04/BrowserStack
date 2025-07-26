@@ -7,8 +7,8 @@ from selenium.common.exceptions import WebDriverException, TimeoutException
 
 from elpais_scraper import scrape_and_analyze_articles
 
-BROWSERSTACK_USERNAME = 'tripathivipul540@gmail.com'
-BROWSERSTACK_ACCESS_KEY = 'jzusmLsJyhFuKRdVbZEs'
+BROWSERSTACK_USERNAME = "Your BROWSERSTACK_USERNAME"
+BROWSERSTACK_ACCESS_KEY = "Your BROWSERSTACK_ACCESS_KEY"
 URL = "https://hub-cloud.browserstack.com/wd/hub"
 
 capabilities = [

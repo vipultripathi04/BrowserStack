@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-RAPIDAPI_KEY = "de5c9b1858msh71aac74e75a5b99p1dad32jsn9cc617ca93d2"
+RAPIDAPI_KEY = "Your RAPIDAPI_KEY"
 
 def scrape_and_analyze_articles(driver):
     """Entry point for BrowserStack execution - scrapes El País articles and analyzes them"""
